@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @post.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<h2>Comments</h2>
+<p>
+  <%= render :partial => "comments/_form" %>
+</p>
+
+<%= render @post.comments %>
+
+<h2>Tags:</h2>
+<%= @post.tags.map { |tag| tag.name }.join(", ") %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

@@ -1,0 +1,6 @@
+<div>
+	<%= comment.body %>
+	<%= comment.create_at %>
+	<%= link_to "delete", [comment.post, comment], :method => :delete, :
+		data => { :confirm => "Are you sure?"} %>	
+</div>
