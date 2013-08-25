@@ -15,15 +15,19 @@
   <%= @post.content %>
 </p>
 
-<h2>Comments</h2>
 <p>
-  <%= render :partial => "comments/_form" %>
+  <b>Tags:</b>
+  <%= @post.tags.map { |t| t.name }.join(", ") %>
 </p>
-
+ 
+<h2>Comments</h2>
 <%= render @post.comments %>
+ 
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
 
-<h2>Tags:</h2>
-<%= @post.tags.map { |tag| tag.name }.join(", ") %>
+<p>
+</p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
