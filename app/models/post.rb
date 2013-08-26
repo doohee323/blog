@@ -3,8 +3,6 @@ class Post < ActiveRecord::Base
 	validates :title, :presence => true,
 					  :length => { :minimum => 5 }
 	
-	# устанавливаем связь М-1 с таблицей Comment
-
 	has_many :comments, :dependent => :destroy
 	has_many :tags
 

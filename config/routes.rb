@@ -1,8 +1,7 @@
 Blog::Application.routes.draw do
   resources :posts
 
-  get "home/index"
-  get "say/hello"
+  get "welcome/index"
 
   resources :post do
     resources :comments

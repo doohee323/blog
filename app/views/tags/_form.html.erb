@@ -1,12 +1,11 @@
-<%= form.fields_for :tags do |tag_form| %>
+<% @post.tags.build %>
+<%= form.fields_for :tags do | f | %>
   <div class="field">
-    <%= tag_form.label :name, 'Tag:' %>
-    <%= tag_form.text_field :name %>
+    <%= f.label :name, 'Tag:' %>
+    <%= f.text_field :name %>
+    <% if f.object.persisted? %>
+      <%= f.label :_destroy %>
+      <%= f.check_body :_destroy %>
+    <% end %>
   </div>
-  <% unless tag_form.object.nil? || tag_form.object.new_record? %>
-    <div class="field">
-      <%= tag_form.label :_destroy, 'Remove:' %>
-      <%= tag_form.check_box :_destroy %>
-    </div>
-  <% end %>
 <% end %>
